@@ -2,10 +2,10 @@ POST localhost:8080/users
 Content-Type: application/json
 
 {
-  "firstName": "jialei",
-  "lastName": "di",
-  "nickName": "leige",
-  "email": "dijialei@gmail.com",
+  "firstName": "li",
+  "lastName": "su",
+  "nickName": "laopo",
+  "email": "suli@gmail.com",
   "password": "123456",
   "roles": ["admin"]
 }

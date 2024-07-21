@@ -1,0 +1,14 @@
+POST localhost:8080/login
+Content-Type: application/json
+
+{
+
+  "email": "dijialei@gmail.com",
+  "password": "123456"
+}
+
+###
+GET localhost:8080/signout
+Content-Type: application/json
+JWT-TOKEN: eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiIxIiwibmlja05hbWUiOiJsZWlnZSIsInJvbGVzIjpbImFkbWluIl0sImV4cCI6MTcyMTY4NDQzM30.KohuodI-m61sF_KGFQoDkWCs1VJ1H9TKdMzZStJFixE
+
