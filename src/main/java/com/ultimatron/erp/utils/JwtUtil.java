@@ -22,6 +22,7 @@ public class JwtUtil {
         List<String> roles = new ArrayList<>(user.getRoles());
         Map map = new HashMap();
         map.put("nickName", user.getNickName());
+        map.put("email",user.getEmail());
         map.put("roles", roles);
         String token = Jwts.builder()
                 .setHeaderParam("type", "JWT")
