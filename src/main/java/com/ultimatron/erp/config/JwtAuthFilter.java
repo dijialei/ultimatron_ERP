@@ -55,7 +55,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                         new UsernamePasswordAuthenticationToken(loginUser,null,loginUser.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }else
-                handlerExceptionResolver.resolveException(request,response,null,new RuntimeException("Token signed out !"));
+                handlerExceptionResolver.resolveException(request,response,null,new RuntimeException("401"));
         }
         filterChain.doFilter(request, response);
     }
