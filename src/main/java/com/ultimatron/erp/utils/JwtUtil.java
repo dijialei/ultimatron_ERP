@@ -21,6 +21,8 @@ public class JwtUtil {
     public String buildJwt(Users user) {
         List<String> roles = new ArrayList<>(user.getRoles());
         Map map = new HashMap();
+        map.put("firstName", user.getFirstName());
+        map.put("lastName", user.getLastName());
         map.put("nickName", user.getNickName());
         map.put("email",user.getEmail());
         map.put("roles", roles);
