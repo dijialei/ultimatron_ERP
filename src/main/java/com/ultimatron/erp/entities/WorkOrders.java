@@ -3,7 +3,7 @@ package com.ultimatron.erp.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -17,7 +17,7 @@ public class WorkOrders {
     private String client;
     private String model;
     private String sn;
-    private LocalDateTime registrationTime;
+    private LocalDate registrationTime;
     private String description;
     private String result;
     private Boolean replaceAdvance;

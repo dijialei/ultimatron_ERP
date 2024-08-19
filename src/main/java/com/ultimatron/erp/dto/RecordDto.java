@@ -8,5 +8,5 @@ public class RecordDto {
     private Integer id;
     private String record;
     private LocalDateTime recordTime;
-    private WorkOrderDto workOrderDto;
+    private Integer workOrderId;
 }
