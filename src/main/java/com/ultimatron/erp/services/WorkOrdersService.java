@@ -26,9 +26,15 @@ public class WorkOrdersService {
     private WorkOrdersMapper workOrdersMapper;
 
     public void addOrder(WorkOrders order) {
-        //"OPEN" default id is 1
-        Optional<States> state = statesRepository.findById(1);
-        order.setState(state.get());
+        //"OPEN" default
+        Optional<States> statesOptional = statesRepository.findByState("OPEN");
+
+        States state = statesOptional.orElseGet(()-> {
+            States newState = new States();
+            newState.setState("OPEN");
+            return statesRepository.save(newState);
+        });
+        order.setState(state);
         order.setReplaceAdvance(false);
         workOrdersRepository.save(order);
     }

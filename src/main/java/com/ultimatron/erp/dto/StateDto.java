@@ -8,6 +8,6 @@ import java.util.List;
 public class StateDto {
     private Integer id;
     private String state;
-    private List<WorkOrderDto> workOrderDtos;
+    //private List<WorkOrderDto> workOrderDtos;
 
 }

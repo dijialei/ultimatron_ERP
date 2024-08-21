@@ -3,7 +3,6 @@ package com.ultimatron.erp.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -19,6 +18,6 @@ public class WorkOrderDto {
     private Boolean replaceAdvance;
     private Integer userId;
     private List<RecordDto> records;
-    private Integer stateId;
-    private Integer instructionId;
+    private StateDto state;
+    private InstructionDto instruction;
 }

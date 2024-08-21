@@ -8,6 +8,6 @@ import java.util.List;
 public class InstructionDto {
     private Integer id;
     private String message;
-    private List<WorkOrderDto> workOrderDtos;
+    //private List<WorkOrderDto> workOrderDtos;
 
 }
