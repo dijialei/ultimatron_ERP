@@ -24,13 +24,14 @@ public class OrdersController {
         Users user = loginUser.getUser();
         order.setUser(user);
         ordersService.addOrder(order);
-        return ResponseEntity.status(200).body("created!");
+        return ResponseEntity.status(200).build();
     }
     @GetMapping
-    public ResponseEntity<List<WorkOrderDto>> findAllById(){
+    public ResponseEntity<List<WorkOrderDto>> findAllByUserIdAndState(@RequestParam("status") String status){
+
         LoginUser loginUser = (LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Users user = loginUser.getUser();
         Integer id = user.getId();
-        return ResponseEntity.status(200).body( ordersService.findAllById(id));
+        return ResponseEntity.status(200).body( ordersService.findAllByUserIdAndState(id,status));
     }
 }

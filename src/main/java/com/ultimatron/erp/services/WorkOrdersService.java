@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,10 +40,15 @@ public class WorkOrdersService {
         workOrdersRepository.save(order);
     }
 
-    public List<WorkOrderDto> findAllById(Integer id) {
+    public List<WorkOrderDto> findAllByUserIdAndState(Integer id,String state) {
         Users user = usersRepository.findById(id).get();
         List<WorkOrders> workOrders = user.getOrders();
-        List<WorkOrderDto> workOrderDtos = workOrders.stream().map(workOrdersMapper::toWorkOrderDto).collect(Collectors.toList());
+        Predicate<WorkOrders> stateFilter = "CLOSE".equals(state)
+                ? order -> "CLOSE".equals(order.getState().getState())
+                : order -> !("CLOSE".equals(order.getState().getState()));
+//        workOrders ="CLOSE".equals(state)? workOrders.stream().filter(order -> "CLOSE".equals(order.getState().getState())).collect(Collectors.toList())
+//        :workOrders.stream().filter(order -> !("CLOSE".equals(order.getState().getState()))).collect(Collectors.toList());
+        List<WorkOrderDto> workOrderDtos = workOrders.stream().filter(stateFilter).map(workOrdersMapper::toWorkOrderDto).collect(Collectors.toList());
         System.out.println(workOrderDtos);
         return workOrderDtos;
     }
