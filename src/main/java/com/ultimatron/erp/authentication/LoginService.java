@@ -47,7 +47,7 @@ public class LoginService {
         String token = httpHeaders.get(jwtConfig.getName()).get(0);
         LoginUser loginUser = (LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         redisUtil.deleteRedisCache(loginUser.getUser().getEmail(), token);
-        return ResponseEntity.status(200).body("signout ! ");
+        return ResponseEntity.status(200).build();
     }
 
 }
